@@ -2,11 +2,11 @@ import { loginWithGoogle } from './auth.js';
 
 export function renderLogin(root) {
   root.innerHTML = '';
-  
+
   const btn = document.createElement('button');
   btn.className = 'btn blue mb-12';
   btn.textContent = '🔵  Login dengan Google';
-  
+
   btn.addEventListener('click', async () => {
     btn.disabled = true;
     btn.textContent = '⏳ Redirecting...';
@@ -18,7 +18,7 @@ export function renderLogin(root) {
       alert(err.message || 'Login gagal');
     }
   });
-  
+
   const wrap = document.createElement('div');
   wrap.className = 'login-wrap';
   wrap.innerHTML = `
@@ -31,6 +31,6 @@ export function renderLogin(root) {
     </div>
   `;
   wrap.querySelector('.login-card').appendChild(btn);
-  
+
   root.appendChild(wrap);
 }
