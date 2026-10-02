@@ -19,9 +19,9 @@ function el(tag, props = {}, ...kids) {
 function timeAgo(d) {
   const s = Math.floor((Date.now() - new Date(d)) / 1000);
   if (s < 60) return 'baru aja';
-  if (s < 3600) return Math.floor(s/60) + 'm';
-  if (s < 86400) return Math.floor(s/3600) + 'j';
-  if (s < 604800) return Math.floor(s/86400) + 'h';
+  if (s < 3600) return Math.floor(s / 60) + 'm';
+  if (s < 86400) return Math.floor(s / 3600) + 'j';
+  if (s < 604800) return Math.floor(s / 86400) + 'h';
   return new Date(d).toLocaleDateString('id-ID');
 }
 
@@ -54,8 +54,8 @@ function renderNav(root, user, active = 'home') {
     if (confirm('Logout dari ScraperShare?')) logout();
   }, 800);
   const cancelPress = () => clearTimeout(timer);
-  ['mousedown','touchstart'].forEach(e => profileBtn.addEventListener(e, startPress));
-  ['mouseup','touchend','mouseleave'].forEach(e => profileBtn.addEventListener(e, cancelPress));
+  ['mousedown', 'touchstart'].forEach(e => profileBtn.addEventListener(e, startPress));
+  ['mouseup', 'touchend', 'mouseleave'].forEach(e => profileBtn.addEventListener(e, cancelPress));
 
   const nav = el('div', { class: 'nav' }, homeBtn, fabBtn, profileBtn);
   root.append(nav);
